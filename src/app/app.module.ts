@@ -15,24 +15,9 @@ import { NgOptimizedImage } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatCheckboxModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-    NgOptimizedImage,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent, LoginComponent],
+    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatFormFieldModule, MatIconModule, MatInputModule, MatCheckboxModule, MatButtonModule, ReactiveFormsModule, NgOptimizedImage, HttpClientModule],
+    providers: [],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

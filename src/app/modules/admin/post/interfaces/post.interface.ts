@@ -1,11 +1,11 @@
 interface IPostBase {
-  userId: number;
-  title: string;
-  body: string;
+    userId: number;
+    title: string;
+    body: string;
 }
 
 export interface IPost extends IPostBase {
-  id: number;
+    id: number;
 }
 
-export interface IBodyPost extends IPostBase {}
+export type IBodyPost = IPostBase;

@@ -4,12 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
-  declarations: [
-  ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    MatDialogModule
-  ],
+    declarations: [],
+    imports: [CommonModule, AdminRoutingModule, MatDialogModule],
 })
-export class AdminModule { }
+export class AdminModule {}
