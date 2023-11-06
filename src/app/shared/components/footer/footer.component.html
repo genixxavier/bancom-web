@@ -1,44 +1,43 @@
 <footer>
-  <div class='container bancom-footer'>
-    <div class='footer-menu'>
-      <img ngSrc='assets/images/logo-2.svg' alt='logo' height='32' width='32'>
-      <p>Download Now License</p>
-      <div>
-        <mat-list role="list" class='horizontal'>
-          <mat-list-item role="listitem" *ngFor='let item of menuFooter'>
-            <a [routerLink]='item.url'>{{item.text}}</a>
-          </mat-list-item>
-        </mat-list>
-      </div>
-      <p class='copy'>© 2021 Landify UI Kit. All rights reserved</p>
-    </div>
+    <div class="container bancom-footer">
+        <div class="footer-menu">
+            <img ngSrc="assets/images/logo-2.svg" alt="logo" height="32" width="32" />
+            <p>Download Now License</p>
+            <div>
+                <mat-list role="list" class="horizontal">
+                    <mat-list-item role="listitem" *ngFor="let item of menuFooter">
+                        <a [routerLink]="item.url">{{item.text}}</a>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+            <p class="copy">© 2021 Landify UI Kit. All rights reserved</p>
+        </div>
 
-    <div class='footer-contact'>
-      <img ngSrc='assets/images/logo-2.svg' alt='logo' height='32' width='32'>
-      <p>Contáctanos</p>
-      <div>
-        <mat-list role="list" class='horizontal'>
-          <mat-list-item role="listitem">
-            <p>WhatsApps</p>
-          </mat-list-item>
-          <mat-list-item role="listitem" *ngFor='let item of listWhatsApps'>
-            <a [href]='"tel:"+item.number'>{{item.text}}</a>
-          </mat-list-item>
-        </mat-list>
-      </div>
-      <p class='copy'>© 2021 Landify UI Kit. All rights reserved</p>
-    </div>
+        <div class="footer-contact">
+            <img ngSrc="assets/images/logo-2.svg" alt="logo" height="32" width="32" />
+            <p>Contáctanos</p>
+            <div>
+                <mat-list role="list" class="horizontal">
+                    <mat-list-item role="listitem">
+                        <p>WhatsApps</p>
+                    </mat-list-item>
+                    <mat-list-item role="listitem" *ngFor="let item of listWhatsApps">
+                        <a [href]='"tel:"+item.number'>{{item.text}}</a>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+            <p class="copy">© 2021 Landify UI Kit. All rights reserved</p>
+        </div>
 
-    <div class='footer-app'>
-      <p>Get the App</p>
-      <mat-list role="list" class='btns-apps'>
-        <mat-list-item role="listitem" *ngFor='let item of listApps'>
-          <a [href]='item.url' target='_blank'>
-            <img [ngSrc]='"assets/images/"+item.icon' height='40' width='135'>
-          </a>
-        </mat-list-item>
-      </mat-list>
+        <div class="footer-app">
+            <p>Get the App</p>
+            <mat-list role="list" class="btns-apps">
+                <mat-list-item role="listitem" *ngFor="let item of listApps">
+                    <a [href]="item.url" target="_blank">
+                        <img [ngSrc]='"assets/images/"+item.icon' height="40" width="135" alt="img" />
+                    </a>
+                </mat-list-item>
+            </mat-list>
+        </div>
     </div>
-
-  </div>
 </footer>

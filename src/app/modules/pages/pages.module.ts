@@ -5,7 +5,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
 import { HomeComponent } from './home/home.component';
 import { FeaturesComponent } from './features/features.component';
-import {HeaderModule} from "../../shared/components/header/header.module";
+import { HeaderModule } from '../../shared/components/header/header.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { HeroComponent } from './home/components/hero/hero.component';
@@ -15,23 +15,7 @@ import { BancomBoxModule } from '../../shared/components/bancom-box/bancom-box.m
 import { FooterModule } from '../../shared/components/footer/footer.module';
 
 @NgModule({
-  declarations: [
-    PagesComponent,
-    HomeComponent,
-    FeaturesComponent,
-    HeroComponent,
-    TailorComponent,
-    OursComponent
-  ],
-  imports: [
-    CommonModule,
-    PagesRoutingModule,
-    HeaderModule,
-    FooterModule,
-    BancomBoxModule,
-    MatButtonModule,
-    MatIconModule,
-    NgOptimizedImage,
-  ],
+    declarations: [PagesComponent, HomeComponent, FeaturesComponent, HeroComponent, TailorComponent, OursComponent],
+    imports: [CommonModule, PagesRoutingModule, HeaderModule, FooterModule, BancomBoxModule, MatButtonModule, MatIconModule, NgOptimizedImage],
 })
-export class PagesModule { }
+export class PagesModule {}

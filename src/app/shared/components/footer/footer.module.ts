@@ -4,20 +4,9 @@ import { FooterComponent } from './footer.component';
 import { MatListModule } from '@angular/material/list';
 import { RouterLink } from '@angular/router';
 
-
-
 @NgModule({
-  declarations: [
-    FooterComponent
-  ],
-  imports: [
-    CommonModule,
-    NgOptimizedImage,
-    MatListModule,
-    RouterLink,
-  ],
-  exports: [
-    FooterComponent
-  ]
+    declarations: [FooterComponent],
+    imports: [CommonModule, NgOptimizedImage, MatListModule, RouterLink],
+    exports: [FooterComponent],
 })
-export class FooterModule { }
+export class FooterModule {}

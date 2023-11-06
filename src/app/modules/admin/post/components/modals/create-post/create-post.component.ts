@@ -11,44 +11,42 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
-  selector: 'app-create-post',
-  standalone: true,
-  imports: [CommonModule, MatDialogModule, MatButtonModule, MatIconModule, FormsModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, NgOptimizedImage, ReactiveFormsModule, MatProgressSpinnerModule],
-  templateUrl: './create-post.component.html',
-  styleUrls: ['./create-post.component.scss']
+    selector: 'app-create-post',
+    standalone: true,
+    imports: [CommonModule, MatDialogModule, MatButtonModule, MatIconModule, FormsModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, NgOptimizedImage, ReactiveFormsModule, MatProgressSpinnerModule],
+    templateUrl: './create-post.component.html',
+    styleUrls: ['./create-post.component.scss'],
 })
-export class CreatePostComponent{
-  postForm: FormGroup;
-  loading = false;
+export class CreatePostComponent {
+    postForm: FormGroup;
+    loading = false;
 
-  constructor(
-    private readonly fb: FormBuilder,
-    private readonly _postService: PostService,
-    public _dialogRef: MatDialogRef<CreatePostComponent>,
-    @Inject(MAT_DIALOG_DATA) public userId: number
-  ) {
-    console.log("sdsfdsf", userId)
-    _dialogRef.disableClose = true;
-    this.postForm = this.fb.group({
-      title: ['', [Validators.required]],
-      body: ['', [Validators.required]],
-      userId: [userId]
-    });
-  }
+    constructor(
+        private readonly fb: FormBuilder,
+        private readonly _postService: PostService,
+        public _dialogRef: MatDialogRef<CreatePostComponent>,
+        @Inject(MAT_DIALOG_DATA) public userId: number
+    ) {
+        console.log('sdsfdsf', userId);
+        _dialogRef.disableClose = true;
+        this.postForm = this.fb.group({
+            title: ['', [Validators.required]],
+            body: ['', [Validators.required]],
+            userId: [userId],
+        });
+    }
 
-  createPost(){
-    this.loading = true;
-    this._postService.createPost(this.postForm.value).subscribe({
-      next: (data) => {
-        this.loading= false
-        this._dialogRef.close(true);
-      },
-      error: err => {
-        this.loading= false
-        console.log(err)
-      }
-    })
-  }
-
-
+    createPost() {
+        this.loading = true;
+        this._postService.createPost(this.postForm.value).subscribe({
+            next: () => {
+                this.loading = false;
+                this._dialogRef.close(true);
+            },
+            error: err => {
+                this.loading = false;
+                console.log(err);
+            },
+        });
+    }
 }

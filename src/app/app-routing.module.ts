@@ -4,23 +4,23 @@ import { LoginComponent } from './modules/auth/login/login.component';
 import { authGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
-  {
-    path: "",
-    loadChildren: () => import("./modules/pages/pages.module").then(m => m.PagesModule),
-  },
-  {
-    path: "login",
-    component: LoginComponent
-  },
-  {
-    path: "admin",
-    canActivate: [authGuard],
-    loadChildren: () => import("./modules/admin/admin-routing.module").then(m => m.AdminRoutingModule),
-  }
+    {
+        path: '',
+        loadChildren: () => import('./modules/pages/pages.module').then(m => m.PagesModule),
+    },
+    {
+        path: 'login',
+        component: LoginComponent,
+    },
+    {
+        path: 'admin',
+        canActivate: [authGuard],
+        loadChildren: () => import('./modules/admin/admin-routing.module').then(m => m.AdminRoutingModule),
+    },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

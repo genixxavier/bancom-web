@@ -1,84 +1,66 @@
-<div class='container-admin'>
-  <table mat-table
-         [dataSource]="dataSource" multiTemplateDataRows
-         class="mat-elevation-z8">
+<div class="container-admin">
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let element">{{element?.name}}</td>
+        </ng-container>
 
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Nombre</th>
-      <td mat-cell *matCellDef="let element">
-        {{element?.name}}
-      </td>
-    </ng-container>
+        <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef>Username</th>
+            <td mat-cell *matCellDef="let element">{{element?.username}}</td>
+        </ng-container>
 
-    <ng-container matColumnDef="username">
-      <th mat-header-cell *matHeaderCellDef>Username</th>
-      <td mat-cell *matCellDef="let element">
-        {{element?.username}}
-      </td>
-    </ng-container>
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef>Dirección</th>
+            <td mat-cell *matCellDef="let element">{{element?.address?.street}}, {{element?.address?.suite}}, {{element?.address?.city}}</td>
+        </ng-container>
 
-    <ng-container matColumnDef="address">
-      <th mat-header-cell *matHeaderCellDef>Dirección</th>
-      <td mat-cell *matCellDef="let element">
-        {{element?.address?.street}}, {{element?.address?.suite}}, {{element?.address?.city}}
-      </td>
-    </ng-container>
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Correo</th>
+            <td mat-cell *matCellDef="let element">{{element?.email}}</td>
+        </ng-container>
 
-    <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef>Correo</th>
-      <td mat-cell *matCellDef="let element">
-        {{element?.email}}
-      </td>
-    </ng-container>
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef>Phone</th>
+            <td mat-cell *matCellDef="let element">{{element?.phone}}</td>
+        </ng-container>
 
-    <ng-container matColumnDef="phone">
-      <th mat-header-cell *matHeaderCellDef>Phone</th>
-      <td mat-cell *matCellDef="let element">
-        {{element?.phone}}
-      </td>
-    </ng-container>
+        <ng-container matColumnDef="expand">
+            <th mat-header-cell *matHeaderCellDef aria-label="row actions">Post</th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button aria-label="expand row" (click)="canLoaderUserPost(element.id); (expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
+                    <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+                    <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+                </button>
+            </td>
+        </ng-container>
 
-    <ng-container matColumnDef="expand">
-      <th mat-header-cell *matHeaderCellDef aria-label="row actions">Post</th>
-      <td mat-cell *matCellDef="let element">
-        <button mat-icon-button aria-label="expand row" (click)="canLoaderUserPost(element.id); (expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
-          <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
-          <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
-        </button>
-      </td>
-    </ng-container>
+        <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
+                <div class="example-element-detail" [@detailExpand]="element === expandedElement ? 'expanded' : 'collapsed'">
+                    <div *ngIf="loading" class="w-full h-60 flex justify-center items-center">
+                        <mat-spinner></mat-spinner>
+                    </div>
+                    <div class="post-content" *ngIf="!loading" [ngClass]="{'post-two': userPosts.length}">
+                        <div class="post-item" *ngIf="userPosts.length">
+                            <mat-list>
+                                <mat-list-item lines="3" *ngFor="let post of userPosts">
+                                    <span matListItemTitle>{{post.title}}</span>
+                                    <span class="post-body">{{post.body}}</span>
+                                </mat-list-item>
+                            </mat-list>
+                        </div>
+                        <p class="text-center" *ngIf="!userPosts.length">Aún no tienes posts</p>
+                        <div class="post-button">
+                            <button mat-raised-button color="primary" class="btn" (click)="openModalCreateUser()">Crear un post</button>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </ng-container>
 
-    <ng-container matColumnDef="expandedDetail">
-      <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
-        <div class="example-element-detail"
-             [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-          <div *ngIf='loading' class='w-full h-60 flex justify-center items-center'>
-            <mat-spinner></mat-spinner>
-          </div>
-          <div class='post-content' *ngIf='!loading' [ngClass]="{'post-two': userPosts.length}">
-            <div class='post-item' *ngIf='userPosts.length'>
-              <mat-list>
-                <mat-list-item lines="3" *ngFor='let post of userPosts'>
-                  <span matListItemTitle>{{post.title}}</span>
-                  <span class='post-body'>{{post.body}}</span>
-                </mat-list-item>
-              </mat-list>
-            </div>
-            <p class='text-center' *ngIf='!userPosts.length'>Aún no tienes posts</p>
-            <div class='post-button'>
-              <button mat-raised-button color="primary" class="btn" (click)='openModalCreateUser()'>
-                Crear un post
-              </button>
-            </div>
-          </div>
-        </div>
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand">
-    </tr>
-    <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand" class="example-element-row">
-    </tr>
-    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
-  </table>
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+        <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand" class="example-element-row"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+    </table>
 </div>

@@ -4,12 +4,12 @@ import { AuthenticationService } from '../services/authentication.service';
 import { tap } from 'rxjs';
 
 export const authGuard: CanActivateFn = () => {
-  const authService = inject(AuthenticationService);
-  const router = inject(Router);
+    const authService = inject(AuthenticationService);
+    const router = inject(Router);
 
-  return authService.getIsAuthenticated().pipe(
-    tap((value) => {
-      return !value ? router.navigate(['/login']) : true
-    })
-  );
+    return authService.getIsAuthenticated().pipe(
+        tap(value => {
+            return !value ? router.navigate(['/login']) : true;
+        })
+    );
 };
