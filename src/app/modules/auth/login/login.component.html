@@ -1,0 +1,39 @@
+<div class='container-login'>
+  <div class='box-image'></div>
+  <div class='box-form'>
+    <div class='box-main'>
+        <p>Bienvenido</p>
+        <h3>Inicia sesión</h3>
+        <form [formGroup]='loginForm' >
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Correo electrónico</mat-label>
+              <input matInput formControlName='email'>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Contraseña</mat-label>
+              <input formControlName='password' matInput [type]="hide ? 'password' : 'text'">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+          <mat-checkbox color='primary'>Recordar correo</mat-checkbox>
+          <div class='form-buttons'>
+            <button (click)='login()' [disabled]='!loginForm.valid' mat-raised-button color="primary" class="btn w-full">
+              Ingresar
+            </button>
+
+            <button mat-raised-button color="btn-google" class="btn w-full">
+              <mat-icon>
+                <img ngSrc='./assets/images/google.svg' alt='google' height='18' width='18'>
+              </mat-icon>
+              Ingresar  con google
+            </button>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>

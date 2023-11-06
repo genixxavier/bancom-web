@@ -1,0 +1,53 @@
+.mat-mdc-form-field{
+  width: 100%;
+}
+.mat-btn-google{
+  background-color: #2D3748 !important;
+  color: #ffffff !important;
+}
+.container-login{
+  display: flex;
+  height: 100vh;
+
+  .box-image{
+    background-image: url("/assets/images/bg-login.jpg");
+    background-size: cover;
+    background-position: top;
+    width: 50%;
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
+
+  .box-form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: 768px) {
+      width: 50%;
+    }
+  }
+
+  .box-main{
+    width: 359px;
+
+    form{
+      margin-top: 16px;
+
+      .form-buttons{
+        padding-top: 60px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      padding: 0 50px;
+    }
+  }
+}

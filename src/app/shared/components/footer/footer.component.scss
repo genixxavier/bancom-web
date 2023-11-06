@@ -1,0 +1,66 @@
+mat-list.horizontal {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+
+  .mat-mdc-list-item{
+    width: auto;
+    margin: 0;
+    padding: 0;
+    height: 32px;
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+    gap: 24px;
+  }
+}
+
+footer{
+  background-color: #000000;
+  padding: 64px 0;
+
+  img{
+    margin-bottom: 24px;
+  }
+
+  a, p{
+    color: var(--bancom-color-white);
+  }
+
+  .copy{
+    font-size: 14px;
+  }
+
+  .bancom-footer{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 32px;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+
+  .footer-contact{
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: block;
+    }
+  }
+
+  .btns-apps{
+    padding-top: 16px;
+    .mat-mdc-list-item{
+      width: auto;
+      padding: 0;
+      margin: 0 0 16px;
+    }
+    img{
+      margin: 0;
+    }
+  }
+}
+

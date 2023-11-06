@@ -1,1 +1,147 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --mdc-shape-small: 8px;
+  --mat-toolbar-standard-height: 80px;
+  --mat-toolbar-mobile-height: 56px;
+  --mat-toolbar-container-background-color: transparent;
+
+  --bancom-color-primary: #7C3AED;
+  --bancom-color-neutral: #111827;
+  --bancom-color-text: #111827;
+  --bancom-color-text-subtitle: #374151;
+  --bancom-color-header-table: #808692;
+  --bancom-color-white: #ffffff;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Inter', sans-serif; }
+h1, h2, h3, p{
+  margin: 0;
+}
+h1{
+  color: var(--bancom-color-neutral);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 45px;
+
+  @media (min-width: 768px) {
+    font-size: 60px;
+    line-height: 72px;
+  }
+}
+
+h2{
+  color: var(--bancom-color-text);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 45px;
+  word-wrap: break-word;
+
+  @media (min-width: 768px) {
+    font-size: 48px;
+    line-height: 60px;
+  }
+}
+
+h3{
+  color: var(--bancom-color-text);
+  font-size: 30px;
+  font-weight: 700;
+  word-wrap: break-word
+}
+
+
+p{
+ color: var(--bancom-color-text);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  word-wrap: break-word
+}
+
+a{
+  text-decoration: none;
+}
+
+.block{
+  display: block;
+}
+
+.flex{
+  display: flex;
+}
+
+.flex-col{
+  flex-direction: column;
+}
+
+.flex-auto{
+  flex: 1 1 auto;
+}
+
+.justify-between{
+  justify-content: space-between;
+}
+
+.justify-center{
+  justify-content: center;
+}
+
+.items-center{
+  align-items: center;
+}
+
+.gap-16{
+  gap: 16px;
+}
+
+.gap-32{
+  gap: 32px;
+}
+
+.pb-16{
+  padding-bottom: 16px;
+}
+
+.pb-24{
+  padding-bottom: 24px;
+}
+
+.h-60{
+  height: 15rem;
+}
+
+.w-full{
+  width: 100%;
+}
+
+.w-200{
+  width: 200px;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.btn{
+  padding: 12px 20px !important;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px !important;
+  height: auto !important;
+  letter-spacing: 0;
+}
+
+.container{
+  max-width: 1212px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @media (min-width: 1024px) {
+    padding: 0;
+  }
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface{
+  border-radius: 24px !important;
+}

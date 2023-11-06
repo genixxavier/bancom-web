@@ -1,0 +1,11 @@
+<section class='container'>
+  <div class='tailor'>
+    <div class='box-title'>
+      <h2>Tailor-made features</h2>
+      <p>Lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation.</p>
+    </div>
+    <div class='tailor-content'>
+      <app-bancom-box *ngFor='let item of tailoritems' [icon]='item.icon' [title]='item.title' [text]='item.text'></app-bancom-box>
+    </div>
+  </div>
+</section>

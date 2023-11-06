@@ -1,0 +1,24 @@
+.bancom-box-item{
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.bancom-box-item-title{
+  color: var(--bancom-color-text);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.box-style-one{
+  flex-direction: column;
+
+  .bancom-box-item-content{
+    text-align: center;
+  }
+
+  .bancom-box-item-title{
+    margin-bottom: 8px;
+  }
+}

@@ -1,0 +1,47 @@
+.tailor{
+  padding: 48px 0;
+  .box-title{
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+
+    h2{
+      margin-bottom: 8px;
+    }
+
+    p{
+      font-size: 18px;
+      line-height: 28px;
+      padding-bottom: 32px;
+    }
+
+    @media (min-width: 1024px) {
+      width: 60%;
+    }
+  }
+
+  .tailor-content{
+    padding-top: 64px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: 30px;
+    row-gap: 64px;
+    padding-right: 60px;
+    padding-left: 60px;
+
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding: 96px 0;
+  }
+}

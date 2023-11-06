@@ -1,0 +1,51 @@
+.hero{
+  background-image: url("/assets/images/background.jpg");
+  background-position: top right;
+  background-size: cover;
+  padding-top: 80px;
+  padding-bottom: 32px;
+  gap: 32px;
+
+  .hero-main{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+    }
+  }
+
+  .hero-content{
+    h1{
+      padding-bottom: 16px;
+    }
+
+    p{
+      color: var(--bancom-color-text-subtitle);
+      font-size: 18px;
+      line-height: 28px;
+      padding-bottom: 32px;
+    }
+
+    @media (min-width: 768px) {
+      padding-top: 96px;
+      padding-right: 48px;
+    }
+  }
+
+  .box-phone{
+    margin: 0 auto;
+    img {
+      width: 333px;
+    }
+    @media (min-width: 1200px) {
+      padding: 0 84px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    background-position: bottom center;
+    padding-top: 152px;
+  }
+}
