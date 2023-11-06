@@ -27,7 +27,6 @@ export class CreatePostComponent {
         public _dialogRef: MatDialogRef<CreatePostComponent>,
         @Inject(MAT_DIALOG_DATA) public userId: number
     ) {
-        console.log('sdsfdsf', userId);
         _dialogRef.disableClose = true;
         this.postForm = this.fb.group({
             title: ['', [Validators.required]],
